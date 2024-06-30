@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lahari Balantrapu</title>
-    <link rel="stylesheet" type="text/css" href="./new.css">
-
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,64 +13,60 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-
 </head>
 
 <body style="background: #f8f4f1">
-
     <script>
         AOS.init();
+
+        function calculateAge(dob) {
+            const diffMs = Date.now() - dob.getTime();
+            const ageDt = new Date(diffMs);
+            return Math.abs(ageDt.getUTCFullYear() - 1970);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dob = new Date('1998-08-19');
+            const age = calculateAge(dob);
+            document.getElementById('age').textContent = age;
+        });
+
+        let mainNav = document.getElementById('js-menu');
+        let navBarToggle = document.getElementById('js-navbar-toggle');
+
+        navBarToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('active');
+        });
     </script>
-<nav class="navbar">
-    <span class="navbar-toggle" id="js-navbar-toggle">
+    <nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
             <i class="fa fa-bars"></i>
         </span>
-   
-    <ul class="main-nav" id="js-menu">
-      <li>
-        <a href="#home" class="nav-links">Home</a>
-      </li>
-      <li>
-        <a href="#aboutme" class="nav-links">About</a>
-      </li>
-      <li>
-        <a href="#project" class="nav-links">Projects</a>
-      </li>
-      <li>
-        <a href="#contact" class="nav-links">Contact</a>
-      </li>
-      <li>
-        <a href="https://laharibalantrapu.medium.com/" target="_blank" class="nav-links">Blog</a>
-      </li>
-    </ul>
-  </nav>
+        <ul class="main-nav" id="js-menu">
+            <li><a href="#home" class="nav-links">Home</a></li>
+            <li><a href="#aboutme" class="nav-links">About</a></li>
+            <li><a href="#project" class="nav-links">Projects</a></li>
+            <li><a href="#contact" class="nav-links">Contact</a></li>
+            <li><a href="https://laharibalantrapu.medium.com/" target="_blank" class="nav-links">Blog</a></li>
+        </ul>
+    </nav>
     <section id="home" class="section header-section">
         <div class="header-container">
             <div class="header-img">
-                <center><img class="header-avtar" src="img/ivy.jpeg" alt="Lahari  image"></center>
+                <center><img class="header-avtar" src="images/ivy.jpeg" alt="Lahari image"></center>
             </div>
-            <h1 class="header-title">Lahari Balantrapu </h1>
+            <h1 class="header-title">Lahari Balantrapu</h1>
             <h4 class="header-sub">also known as IvyAeri</h4>
-            
-
         </div>
-        <!-- <div class="who" data-aos="fade-up">
-
-            <center><i class="fa fa-angle-down" style="font-size:60px;color:#312318"></i></center>
-        </div> -->
-
     </section>
-
     <section id="aboutme" class="section about-section">
         <div class="about-container col-sm-10 offset-sm-1">
             <div class="about-terminal" data-aos="fade-up">
-
                 <div class="terminal-header">
                     <div class="terminal-header-button" style="background-color: #100b08;"></div>
                     <div class="terminal-header-button" style="background-color: #513a28;"></div>
                     <div class="terminal-header-button" style="background-color: #614530"></div>
-                    <div class="terminal-header-button" style="background-color:  #926849;"></div>
+                    <div class="terminal-header-button" style="background-color: #926849;"></div>
                 </div>
                 <div class="terminal-window">
                     <div class="stat">
@@ -79,21 +75,17 @@
                     </div>
                     <div class="stat">
                         <p class="input-stat">Lahari.age()</p>
-                        <p class="output-stat">
-                            22
-                        </p>
+                        <p class="output-stat" id="age"></p>
                     </div>
                     <div class="stat">
                         <p class="input-stat">Lahari.location()</p>
-                        <p class="output-stat">
-                            "Birmingham, UK"
-                        </p>
+                        <p class="output-stat">"London, UK"</p>
                     </div>
                     <div class="stat">
                         <p class="input-stat">Lahari.cv()</p>
                         <p class="output-stat">
                             "<u><a href="./lahari-cv.pdf" target="_blank" style="Color:#3c291d">Lahari_cv.pdf</a></u>"//
-                            <--- Have a look at my CV before you go further. </p>
+                            <--- Click to download my CV. </p>
                     </div>
                     <div class="stat">
                         <p class="input-stat">Lahari.education()</p>
@@ -106,55 +98,99 @@
                     <div class="stat">
                         <p class="input-stat">Lahari.skills()</p>
                         <p class="output-stat">
-                            ['Python', 'C', 'HTML','OpenCV','MATLAB','Machine Learning','Problem Solving', "LaTex"]
+                            ["PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "Keras", "NLTK", "SpaCy", "BERT", "GPT",
+                            "Pandas", "NumPy","Weights & Biases", "AWS", "Google Cloud", "Prompt Engineering", "OpenAI",
+                            "Claude","Geocoders"]
                         </p>
                     </div>
                     <div class="stat">
                         <p class="input-stat">Lahari.experience()</p>
-                        <p class="output-stat">Research Associate at <u><a
-                                    href="https://www.birmingham.ac.uk/index.aspx" target="_blank"
-                                    style="Color:#3c291d">University of Birmingham.</a></u>"
+                        <p class="output-stat">
+                            Scrub_AI: {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"period": "2020 - present",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"projects": [{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"Enhance AI models:
+                            {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Key Achievements":
+                            "Focused on optimising and enhancing the performance of existing AI models.",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Technologies Used":
+                            ["Python", "Scikit-learn", "Pytorch","Weights & Biases","s3"]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Exploring Large Language Models (LLMs)":
+                            {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Key Achievements":
+                            "Investigated the capabilities and applications of LLMs, improving the performance.",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Technologies Used":
+                            ["GPT-4", "Claude", "Prompt Engineering"]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"Setting Up Pipelines for LLMs": {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Key Achievements":
+                            "Developed scalable pipelines, integrated LLMs into inference.",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Technologies Used":
+                            ["Open-source LLM models","Python"]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"Streamlining Data Labelling Pipelines":
+                            {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Key Achievements":
+                            "Enhanced efficiency and accuracy of data labelling processes, implemented Label
+                            Studio.",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Technologies Used":
+                            ["JavaScript", "React", "Label Studio","Python"]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            }<br><br>
 
+                            University_of_Birmingham: {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"period": "2018 - 2020",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;"projects": [{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Medical Imaging and Diagnostics": {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Key Achievements":
+                            "Applied AI techniques to medical imaging, improved diagnostic accuracy by 15%.",<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Technologies Used":
+                            ["OpenCV", "Keras", "TensorFlow","PyTorch", "Scikit-learn"]<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            }
                         </p>
                     </div>
+
                     <div class="stat">
                         <p class="input-stat">Lahari.Display(Projects)</p>
-                        <p class="output-stat">
-                            //sucessfully compiled, scroll down to view.
-                        </p>
+                        <p class="output-stat">// successfully compiled, scroll down to view.</p>
                     </div>
                 </div>
             </div>
-
             <div style="padding-top:100px;" data-aos="zoom-in">
                 <center><i class="fa fa-code" style="font-size:60px;color:#312318"></i></center>
             </div>
         </div>
-        </div>
     </section>
+
     <section id="project" class="section project-section">
         <div class="projects-container col-sm-10 offset-sm-1">
             <!-- My Portfolio -->
-            <div class="project-card row " data-aos="fade-right">
-               <div class="card-img col-sm-3" data-aos="fade-left">
-                    <img class="pimg" src="img/ivy.jpeg">
+            <div class="project-card row" data-aos="fade-right">
+                <div class="card-img col-sm-3" data-aos="fade-left">
+                    <img class="pimg" src="images/ivy.jpeg">
                 </div>
                 <div class="card-text col-sm-9">
                     <div class="card-header">
                         <h1>My Portfolio</h1>
                     </div>
                     <div class="card-about">
-                        <p>This portfolio is a device friendly website of my resume that can be viewed on all the screen sizes.
-                        </p>
+                        <p>This portfolio is a device-friendly website of my resume that can be viewed on all the screen
+                            sizes.</p>
                     </div>
                     <div class="card-tags">
-                        <span>Html</span>
+                        <span>HTML</span>
                         <span>Bootstrap</span>
-                        <span>aos</span>
+                        <span>AOS</span>
                         <span>CSS</span>
                     </div>
-                    <a href=https://ivyaeri.github.io/my_webCV
-                        target="_blank">
+                    <a href="https://ivyaeri.github.io/my_webCV" target="_blank">
                         <div class="project-link-container source">
                             <i class="fa fa-github"></i>
                             <p>View Source</p>
@@ -163,28 +199,26 @@
                 </div>
             </div>
             <!-- Prediction of Skin Cancer -->
-            <div class="project-card row " data-aos="fade-left">
+            <div class="project-card row" data-aos="fade-left">
                 <div class="card-img col-sm-3" data-aos="fade-right">
-                    <img class="pimg" src="img/fimage.jpg">
+                    <img class="pimg" src="images/fimage.jpg">
                 </div>
                 <div class="card-text col-sm-9">
                     <div class="card-header">
                         <h1>Prediction of Skin Cancer</h1>
                     </div>
                     <div class="card-about">
-                        <p>A machine learning model that predicts the stage of the skin cancer based on the image of the
-                            affected
-                            area.
-                        </p>
+                        <p>A machine learning model that predicts the stage of skin cancer based on the image of the
+                            affected area.</p>
                     </div>
                     <div class="card-tags">
                         <span>Python</span>
-                        <span>OpenCv</span>
+                        <span>OpenCV</span>
                         <span>Scikit-learn</span>
                         <span>Machine Learning</span>
                         <span>Tkinter</span>
                     </div>
-                    <a href=https://github.com/ivyaeri/Skin-cancer-prediction target="_blank">
+                    <a href="https://github.com/ivyaeri/Skin-cancer-prediction" target="_blank">
                         <div class="project-link-container source">
                             <i class="fa fa-github"></i>
                             <p>View Source</p>
@@ -192,33 +226,29 @@
                     </a>
                 </div>
             </div>
-
-            <!-- BackPropagation and softmax on Fashion Minst -->
-            <div class="project-card row " data-aos="fade-right">
+            <!-- BackPropagation and SoftMax on Fashion MINST -->
+            <div class="project-card row" data-aos="fade-right">
                 <div class="card-img col-sm-3" data-aos="fade-left">
-                    <img class="pimg" src="img/fashion.png">
+                    <img class="pimg" src="images/fashion.png">
                 </div>
                 <div class="card-text col-sm-9">
                     <div class="card-header">
-                        <h1>BackPropagation and SoftMax on Fashion Minst</h1>
+                        <h1>BackPropagation and SoftMax on Fashion MINST</h1>
                     </div>
                     <div class="card-about">
                         <p>This project is about classifying the fashion MINST data set by using the concepts of
-                            BackPropagation and SoftMax.
-                            The coding
-                            work was done based on the mathematical concepts and without using any inbuilt functions.
-                            Testing has been
-                            done to find the optimal hyper parameters.
-                        </p>
+                            BackPropagation and SoftMax. The coding work was done based on the mathematical concepts and
+                            without using any inbuilt functions. Testing has been done to find the optimal
+                            hyperparameters.</p>
                     </div>
                     <div class="card-tags">
                         <span>Python</span>
-                        <span>pandas</span>
+                        <span>Pandas</span>
                         <span>NumPy</span>
                         <span>Machine Learning</span>
                         <span>Matplotlib</span>
                     </div>
-                    <a href=https://github.com/ivyaeri/Backpropogation-and-softmax-on-FashionMINST-data-set
+                    <a href="https://github.com/ivyaeri/Backpropogation-and-softmax-on-FashionMINST-data-set"
                         target="_blank">
                         <div class="project-link-container source">
                             <i class="fa fa-github"></i>
@@ -228,9 +258,9 @@
                 </div>
             </div>
             <!-- Semantic segmentation of MR images using CNN -->
-            <div class="project-card row " data-aos="fade-left">
+            <div class="project-card row" data-aos="fade-left">
                 <div class="card-img col-sm-3" data-aos="fade-right">
-                    <img class="pimg" src="img/mr.PNG">
+                    <img class="pimg" src="images/mr.PNG">
                 </div>
                 <div class="card-text col-sm-9">
                     <div class="card-header">
@@ -238,12 +268,9 @@
                     </div>
                     <div class="card-about">
                         <p>This project is aimed to create a network to segment MR images of hearts into 4 sections. A
-                            U-Net based
-                            architecture was chosen for the task. Experiments were performed to optimise the
-                            hyperparameters of the
-                            network and compare different architectures. The modified U-Net architecture was found to
-                            perform better
-                            than other architectures tested.</p>
+                            U-Net based architecture was chosen for the task. Experiments were performed to optimise the
+                            hyperparameters of the network and compare different architectures. The modified U-Net
+                            architecture was found to perform better than other architectures tested.</p>
                     </div>
                     <div class="card-tags">
                         <span>Python</span>
@@ -251,10 +278,10 @@
                         <span>Jupyter</span>
                         <span>Machine Learning</span>
                         <span>PyTorch</span>
-                        <span>OpneCV</span>
+                        <span>OpenCV</span>
                         <span>Matplotlib</span>
                     </div>
-                    <a href=https://github.com/ivyaeri/Semantic-segmentation-of-MR-images-using-CNN target="_blank">
+                    <a href="https://github.com/ivyaeri/Semantic-segmentation-of-MR-images-using-CNN" target="_blank">
                         <div class="project-link-container source">
                             <i class="fa fa-github"></i>
                             <p>View Source</p>
@@ -263,11 +290,10 @@
                 </div>
             </div>
             <!-- University Admission Prediction -->
-            <div class="project-card row " data-aos="fade-right">
+            <div class="project-card row" data-aos="fade-right">
                 <div class="card-img col-sm-3" data-aos="fade-left">
-                    <img class="pimg" src="img/uni.jpg">
+                    <img class="pimg" src="images/uni.jpg">
                 </div>
-
                 <div class="card-text col-sm-9">
                     <div class="card-header">
                         <h1>University Admission Prediction</h1>
@@ -275,17 +301,16 @@
                     <div class="card-about">
                         <p>Linear regression along with different optimisation techniques have been implemented without
                             using the inbuilt functions to predict the admission of a student based on several
-                            categories such as IELTS, CGPA,SOP etc.
-                        </p>
+                            categories such as IELTS, CGPA, SOP, etc.</p>
                     </div>
                     <div class="card-tags">
                         <span>Python</span>
-                        <span>pandas</span>
+                        <span>Pandas</span>
                         <span>NumPy</span>
                         <span>Machine Learning</span>
                         <span>Matplotlib</span>
                     </div>
-                    <a href=https://github.com/ivyaeri/University-Admission-Prediction-using-Linear-Regression-without-inbuilt-functions
+                    <a href="https://github.com/ivyaeri/University-Admission-Prediction-using-Linear-Regression-without-inbuilt-functions"
                         target="_blank">
                         <div class="project-link-container source">
                             <i class="fa fa-github"></i>
@@ -297,31 +322,26 @@
         </div>
     </section>
 
-
-<section id="contact">
-<div class="contact-det" data-aos="fade-up">
-   <div style="padding-top:20px;"><h3 style="margin-top:30px;">"Education, I believe, is a never ending process and so is my portfolio, it keeps getting better."</h3></div>
-   <div style="padding-top:20px;"> <p style="font-weight: 100;
-    font-size: 20px;
-    color: #1b130d;"> I am a self-motivated individual always thriving to learn new things, be it academic or extra-curricular. Feel free to drop a message to any of my socials below to further discuss any possible collaborations and employment oppurtunities.</p></div>
-<div class="social-media-icons">
-                <a class="icon" href="https://github.com/ivyaeri" target="_blank">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a class="icon" href="https://www.linkedin.com/in/lahari-balantrapu-559444203/" target="_blank">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a class="icon" href="https://instagram.com/ivyaeri?igshid=1dv2jf2ss1lma" target="_blank">
-                    <i class="fa fa-instagram"></i>
-                </a>
-                <a class="icon" href="mailto:laharibalantrapu@gmail.com">
-                    <i class="fa fa-envelope"></i>
-                </a>
-                <a class="icon" href="tel:+44-7737282441">
-                    <i class="fa fa-phone"></i>
-                </a>
-</div>
-            </div></section>
+    <section id="contact">
+        <div class="contact-det" data-aos="fade-up">
+            <div style="padding-top:20px;">
+                <h3 style="margin-top:30px;">"Education, I believe, is a never-ending process and so is my portfolio, it
+                    keeps getting better."</h3>
+            </div>
+            <div style="padding-top:20px;">
+                <p style="font-weight: 100; font-size: 20px; color: #1b130d;">I am a self-motivated individual always
+                    thriving to learn new things, be it academic or extra-curricular. Feel free to drop a message to any
+                    of my socials below to further discuss any possible collaborations and employment opportunities.</p>
+            </div>
+            <div class="social-media-icons">
+                <a class="icon" href="https://github.com/ivyaeri" target="_blank"><i class="fa fa-github"></i></a>
+                <a class="icon" href="https://www.linkedin.com/in/lahari-balantrapu-559444203/" target="_blank"><i
+                        class="fa fa-linkedin"></i></a>
+                <a class="icon" href="mailto:laharibalantrapu@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a class="icon" href="tel:+44-7737282441"><i class="fa fa-phone"></i></a>
+            </div>
+        </div>
+    </section>
 
     <section id="footer">
         <center>
@@ -329,5 +349,6 @@
         </center>
     </section>
     <script src="./new.js"></script>
-
 </body>
+
+</html>
