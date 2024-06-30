@@ -1,78 +1,80 @@
-html{
-scroll-behaviour:smooth;
+html {
+    scroll-behavior: smooth;
 }
-h, p, span {
+
+h,
+p,
+span {
     font-family: lato, serif;
 }
- .main-nav {
-            list-style-type: none;
-            display: none;
-           
-        }
-.nav-links{
-    color:#503929;
+
+.main-nav {
+    list-style-type: none;
+    display: none;
 }
-        .main-nav li {
-            text-align: center;
-            margin: 15px auto;
-            
-        }
 
-        .logo {
-            display: inline-block;
-            font-size: 22px;
-            margin-top: 10px;
-            margin-left: 20px;
-        }
+.nav-links {
+    color: #503929;
+}
 
-        .navbar-toggle {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            color: #503929;
-            font-size: 24px;
-        }
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
 
-        .active {
-            display: block;
-        }
+.logo {
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
 
-        @media screen and (min-width: 768px) {
-            .navbar {
-                display: flex;
-                justify-content: space-between;
-                padding-bottom: 0;
-                height: 50px;
-                align-items: center;
-            }
+.navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: #503929;
+    font-size: 24px;
+}
 
-            .main-nav {
-                display: flex;
-                margin-right: 30px;
-                flex-direction: row;
-                justify-content: flex-end;
-            }
+.active {
+    display: block;
+}
 
-            .main-nav li {
-                margin: 0;
-            }
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 50px;
+        align-items: center;
+    }
 
-            .nav-links {
-                margin-left: 40px;
-            }
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
 
-            
+    .main-nav li {
+        margin: 0;
+    }
 
-            .navbar-toggle {
-                display: none;
-            }
+    .nav-links {
+        margin-left: 40px;
+    }
 
-  
-            .nav-links:hover {
-                color:#c2a28b;
-            }
-        }
+    .navbar-toggle {
+        display: none;
+    }
+
+    .nav-links:hover {
+        color: #c2a28b;
+    }
+}
+
 .row {
     margin: 20px 0px !important;
 }
@@ -89,10 +91,8 @@ h, p, span {
     justify-content: center;
 }
 
-/* --- HEADER --- */
-
 .header-img {
-    background: conic-gradient( from -45deg, rgb(221, 200, 186, 0.5) 25%, rgb(224, 204, 191, 0.5) 50%, transparent 50%, transparent 75%, rgb(240, 231, 224, 0.5) 75%), 50% 120% / 30% 80% no-repeat;
+    background: conic-gradient(from -45deg, rgb(221, 200, 186, 0.5) 25%, rgb(224, 204, 191, 0.5) 50%, transparent 50%, transparent 75%, rgb(240, 231, 224, 0.5) 75%), 50% 120% / 30% 80% no-repeat;
 }
 
 .header-container {
@@ -101,7 +101,9 @@ h, p, span {
     top: 50px;
     display: block;
     text-align: center;
-    background-color: rgb(248, 244, 241, 0.5);
+    background-blend-mode: overlay;
+    background-color: rgba(248, 244, 241, 0.5);
+    padding: 20px;
 }
 
 .header-avtar {
@@ -127,8 +129,6 @@ h, p, span {
     color: #1b130d;
 }
 
-/* icons */
-
 .social-media-icons {
     display: flex;
     flex-wrap: nowrap;
@@ -143,14 +143,10 @@ h, p, span {
     height: 60px;
     line-height: 60px;
     color: #1b130d;
-    /* background-color: rgb(248, 244, 241, 0.6);
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .1), 0 1px 4px rgba(0, 0, 0, .2);
-    border-radius: 50%; */
     font-size: 30px;
     text-align: center;
     margin-right: 40px;
     transition: all 0.10s ease;
- 
 }
 
 .icon:hover {
@@ -164,8 +160,6 @@ h, p, span {
     font-size: 50px;
     color: #363949;
 }
-
-/* --- ABOUT TERMINAL --- */
 
 .terminal-header {
     display: flex;
@@ -190,7 +184,6 @@ h, p, span {
     border-radius: 0 0 8px 8px;
     padding: 2px;
     box-shadow: 0 50px 100px rgba(50, 50, 93, .15), 0 15px 35px rgba(50, 50, 93, .2), 0 5px 15px rgba(0, 0, 0, .12);
-    
 }
 
 .terminal-window .stat:first-child {
@@ -238,20 +231,16 @@ h, p, span {
     from {
         left: 280px;
     }
+
     to {
         left: 0px;
         color: rgb(90, 93, 122, 0.8);
     }
 }
 
-/* --- PROJECTS --- */
-
-/* cards */
-
 .project-section {
-    padding-top:60px;
-    height:100%;
-    
+    padding-top: 60px;
+    height: 100%;
 }
 
 .projects-content {
@@ -265,13 +254,13 @@ h, p, span {
 .project-card {
     width: 100%;
     box-shadow: 0 50px 100px rgba(50, 50, 93, .05), 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .1);
-    padding-bottom:20px;
+    padding-bottom: 20px;
     border-radius: 8px;
     background-color: rgb(216, 191, 175, 0.5);
     display: flex;
     margin: 10px;
-    padding-top:20px;
-    background: conic-gradient( rgb(239, 231, 225, 0.5) 60deg, rgb(217, 196, 182, 0.6) 60deg, rgb(239, 231, 225, 0.5) 120deg, rgb(239, 231, 225, 0.5) 120deg, rgb(239, 231, 225, 0.5) 240deg, rgb(217, 196, 182, 0.6) 240deg, rgb(239, 231, 225, 0.5) 300deg, rgb(239, 231, 225, 0.5) 300deg), 50% / 50% 50% no-repeat;
+    padding-top: 20px;
+    background: conic-gradient(rgb(239, 231, 225, 0.5) 60deg, rgb(217, 196, 182, 0.6) 60deg, rgb(239, 231, 225, 0.5) 120deg, rgb(239, 231, 225, 0.5) 120deg, rgb(239, 231, 225, 0.5) 240deg, rgb(217, 196, 182, 0.6) 240deg, rgb(239, 231, 225, 0.5) 300deg, rgb(239, 231, 225, 0.5) 300deg), 50% / 50% 50% no-repeat;
 }
 
 .card-img {
@@ -288,16 +277,6 @@ h, p, span {
     box-shadow: 0 4px 6px rgba(50, 50, 93, .1), 0 1px 4px rgba(0, 0, 0, .2);
     border-radius: 50%;
 }
-
-/* .card-text {
-    flex: 1;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 30px;
-    padding-bottom: 50px;
-font-family: lato, serif;
-  }
-   */
 
 .card-header {
     display: flex;
@@ -341,7 +320,9 @@ font-family: lato, serif;
     color: rgb(180, 137, 105, 0.3);
 }
 
-.project-link-container a, i, p {
+.project-link-container a,
+i,
+p {
     display: inline-block;
 }
 
@@ -383,7 +364,7 @@ font-family: lato, serif;
 }
 
 .contact-det {
-padding-top:100px;
+    padding-top: 100px;
     height: 100%;
     top: 50px;
     display: block;
@@ -391,13 +372,9 @@ padding-top:100px;
     background-color: rgb(248, 244, 241, 0.5);
 }
 
-
 .end {
-	padding-top:10px;
+    padding-top: 10px;
     font-weight: 100;
     font-size: 15px;
     color: #1b130d;
-
 }
-
-
